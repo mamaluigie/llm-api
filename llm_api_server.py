@@ -86,22 +86,31 @@ def root(model_info: Model_Info):
 
         elif context_file_exists(model_info.context_id):
 
-            context_file = f'chat_{new_context_id}'
+            context_file_name = f'chat_{model_info.context_id}'
+            print(context_file_name)
 
-            with open(f'./chats/{context_file}', 'r') as context_file:
+            with open(f'./chats/{context_file_name}', 'r') as context_file:
 
-                full_context = context_file.readall()
+                full_context = context_file.read()
 
                 # Add the new question to the full_context
-                full_context = full_context + sentence + "\n"
+                full_context = f'This is the previous chat:\n{full_context}\n\n'
 
-            with open(f'./chats/{context_file}', 'a') as context_file:
+                # now add the new question
+                full_context = full_context + f'Now answer this question:\n\n{sentence}'
+
+            print(full_context)
+            with open(f'./chats/{context_file_name}', 'a') as context_file:
 
                 llm_response = generate_response(full_context)
+                llm_answer = llm_response[0]["generated_text"]
 
                 # Write the question and response to the context file
-                context_file.write(f'Q: {sentence}')
-                context_file.write(f'A: {llm_response}')
+                context_file.write(f'Q: {sentence}\n')
+                context_file.write(f'A: {llm_answer}\n')
+
+            return {"context_id": model_info.context_id,
+                    "answer" : llm_answer}
 
         else:
             return {"code":"Error: Context does not exists for that context id."}

@@ -29,6 +29,10 @@ def main(sentence):
 
             body = {"context_id" : context_id, "sentence" : sentence}
 
+            response = requests.post(url, json=body)
+            print(response.status_code)
+            print(response.json())
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--string', required=True, help='This is the qustion that you will ask the llm')
