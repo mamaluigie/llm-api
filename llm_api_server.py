@@ -32,7 +32,6 @@ def generate_response(sentence):
             sentence
             )
 
-
     return outputs
 
 
@@ -97,7 +96,7 @@ def root(model_info: Model_Info):
                 full_context = f'This is the previous chat:\n{full_context}\n\n'
 
                 # now add the new question
-                full_context = full_context + f'Now answer this question:\n\n{sentence}'
+                full_context = full_context + f'Now answer this question:\n\n{sentence}\n\nDo not repeat any of the previous chat in the answer.'
 
             print(full_context)
             with open(f'./chats/{context_file_name}', 'a') as context_file:
