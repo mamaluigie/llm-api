@@ -49,6 +49,16 @@ class Model_Info(BaseModel):
 
 app = FastAPI()
 
+# Helper api endpoint for checking the existance of a context
+# Including the context_id as a query parameter
+@app.get("/context_exists/")
+def context_exists(context_id: str):
+    if os.path.exists(f'./chats/chat_{context_id}'):
+        return True
+    else:
+        return False
+
+# Main api location for utilizing
 @app.post("/")
 def root(model_info: Model_Info):
 
