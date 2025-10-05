@@ -16,7 +16,7 @@ To run the api run this command:
 - [x] Get the hugging face model working with cuda cores on local system.
 - [x] Set up the initial api for retrieving llm responses.
 - [x] Set up the api to handle chat context and multiple chat histories.
-- [ ] Set up the client code to update the contexts properly and properly update the preprimed and saved answers and questions.
+- [x] Set up the client code to update the contexts properly and properly update the preprimed and saved answers and questions.
 - [ ] Set up functionality for listing all of the chat contexts and each id associated.
 - [ ] Set up functionality for entering manually a context id to reference a chat of choice.
 - [ ] Update the current LLM to be primed with the proper text to make sure the output is proper.
