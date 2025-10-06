@@ -9,6 +9,14 @@ Make sure that you are using python version 3.12 since a lot of machine learning
 
 As new versions come out it will be updated.
 
+### Running test
+
+To run the tests make sure to run this command after initializing the virtual
+environment and installing all of the requirements.txt file requirements from
+the root directory of the project.
+
+```python -m unittest discover -s tests -v```
+
 ## Client Code
 There is a client program that is set up to interact with each of the api endpoints in a proper manner, keeping track of the context id that it is currently being focused on.
 
