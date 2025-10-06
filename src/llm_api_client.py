@@ -10,7 +10,6 @@ def read_context_file():
 
 # Standardized function to write to the chat context file
 def update_context_file(context_id):
-
     with open(".context", "w") as local_context_id:
         local_context_id.write(str(context_id))
 

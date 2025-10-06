@@ -2,6 +2,13 @@
 
 This is going to be an api to recieve sentences to an initialized llm on the serverside. Each prompt without an associated chat id will create a new chat history to keep the context on the server side. There will also be functionality for listing all of the available previous chats that happened with associated ids so I can pick up from where I left off if wanted to.
 
+
+## Setup
+
+Make sure that you are using python version 3.12 since a lot of machine learning libraries are not compatable with newer versions yet. All of the packages in this project are compatable with python3.12 only at the moment. 
+
+As new versions come out it will be updated.
+
 ## Client Code
 There is a client program that is set up to interact with each of the api endpoints in a proper manner, keeping track of the context id that it is currently being focused on.
 
@@ -17,6 +24,7 @@ To run the api run this command:
 - [x] Set up the initial api for retrieving llm responses.
 - [x] Set up the api to handle chat context and multiple chat histories.
 - [x] Set up the client code to update the contexts properly and properly update the preprimed and saved answers and questions.
+- [ ] Set up unit tests, should have been making tests this whole time but am starting now.
 - [ ] Set up functionality for listing all of the chat contexts and each id associated.
 - [ ] Set up functionality for entering manually a context id to reference a chat of choice.
 - [ ] Update the current LLM to be primed with the proper text to make sure the output is proper.
